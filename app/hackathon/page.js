@@ -6,19 +6,11 @@ import Image from "next/image";
 import "bootstrap/dist/css/bootstrap.css";
 import styles from "../page.module.css";
 
-export default function Aga() {
-  const [question, setQuestion] = useState(
-    "We have a financial problem which may delay payment to suppliers to improve cash flow, what should I do?"
-  );
-  const [option1, setOption1] = useState(
-    "I delay the payment for the supplier to the next six month in bulk"
-  );
-  const [option2, setOption2] = useState(
-    "I change the term of payment for suppliers"
-  );
-  const [option3, setOption3] = useState(
-    "I ran from the suppliers and abandon my obligation"
-  );
+export default function Hackathon() {
+  const [question, setQuestion] = useState(""); // We have a financial problem which may delay payment to suppliers to improve cash flow, what should I do?
+  const [option1, setOption1] = useState(""); // I delay the payment for the supplier to the next six month in bulk
+  const [option2, setOption2] = useState(""); // I change the term of payment for suppliers
+  const [option3, setOption3] = useState(""); // I ran from the suppliers and abandon my obligation
 
   const [results, setResults] = useState({
     question: "",
@@ -47,6 +39,12 @@ export default function Aga() {
 
         setResults(await res.json());
         setIsLoading(false);
+
+        setQuestion("");
+        option1("");
+        option2("");
+        option3("");
+
         // console.log(await res.json());
       } catch (err) {
         console.log(err);
